@@ -1,0 +1,12 @@
+{
+ "file": "se2_scorer.pt",
+ "bytes": 5882364,
+ "sha256": "bff904dee9409a27c8f8d782a0d97e1c26c85dc457e2360223453745220deb9c",
+ "parts": [
+  {
+   "path": "se2_scorer.pt.part00",
+   "bytes": 5882364,
+   "sha256": "bff904dee9409a27c8f8d782a0d97e1c26c85dc457e2360223453745220deb9c"
+  }
+ ]
+}

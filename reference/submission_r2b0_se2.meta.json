@@ -1,0 +1,19 @@
+{
+ "pipeline": "final pipeline: 5-fold stage 1 -> existence gate -> R2 refinement -> assembly -> cleanup (20 px, 5 %) -> SE2 (refined fragments) at threshold 0.12744 = 0.6 x 0.2124",
+ "threshold_provenance": "m = 0.6 maximises the leaderboard-type PQ V1 over the nested out-of-fold predictions of all 707 training images and is the leave-one-outer-fold-out V1 choice in 4 of 5 folds (scripts/se2_analysis.py select). No test information used. Post-hoc aspects: docs/validation.md.",
+ "rows": 1381,
+ "rows_before_se2": 1128,
+ "se2_masks": 253,
+ "images_with_predictions": 177,
+ "checks": {
+  "format_official_notebook": "ok (177 entries, 1381 predictions)",
+  "duplicate_ids": 0,
+  "overlapping_pairs": 0,
+  "identical_pairs": 0
+ },
+ "se2_scorer_sha256": "bff904dee9409a27c8f8d782a0d97e1c26c85dc457e2360223453745220deb9c",
+ "produced_by": "src/filseg_infer_r2b0.run (SE2 threshold 0.12744), RTX A6000 bf16, deterministic cuDNN, 614 s",
+ "csv_sha256": "5e36fed404ce42f9e8b898569e45e9b810c9b0259282df831f2f3fe9196afde5",
+ "submitted_as": "r2b0_5fold_t05_a500_r2a300_fc20_isl5_se2m060.csv",
+ "public_lb": 0.37
+}

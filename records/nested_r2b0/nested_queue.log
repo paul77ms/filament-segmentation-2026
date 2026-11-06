@@ -1,0 +1,58 @@
+2026-10-28 19:33:41 queue start gpus=[0, 1] last_launch=- pid=1611143
+2026-10-28 19:33:41 GPU0 start b0n_r101_s1024/hold23 (launch 1/2) pid=1611247 cores=16-21
+2026-10-28 19:34:41 GPU1 start b0n_r101_s1024/hold24 (launch 1/2) pid=1613318 cores=22-27
+2026-10-28 20:04:41 GPU0 end b0n_r101_s1024/hold23 rc=0 ok=True
+2026-10-28 20:04:41 GPU0 start b0n_r101_s1024/hold02 (launch 1/2) pid=1730415 cores=16-21
+2026-10-28 20:06:11 GPU1 end b0n_r101_s1024/hold24 rc=0 ok=True
+2026-10-28 20:06:11 GPU1 start b0n_r101_s1024/hold12 (launch 1/2) pid=1768484 cores=22-27
+2026-10-28 20:35:41 GPU0 end b0n_r101_s1024/hold02 rc=0 ok=True
+2026-10-28 20:35:41 GPU0 start b0n_r101_s1024/hold34 (launch 1/2) pid=1862998 cores=16-21
+2026-10-28 20:37:41 GPU1 end b0n_r101_s1024/hold12 rc=0 ok=True
+2026-10-28 20:37:41 CPU start prep_o2: taskset -c 28-31 .venv/bin/python scripts/nested_stage1.py ens --outer 2 && taskset -c 28-31 .venv/bin/python scripts/nested_stage1.py cache --outer 2 --workers 4 && taskset -c 28-31 .venv/bin/python scripts/nested_stage1.py verify --outer 2
+2026-10-28 20:37:41 GPU1 start b0n_r101_s1024/hold03 (launch 1/2) pid=1925771 cores=22-27
+2026-10-28 20:43:41 CPU end prep_o2: verify passed
+2026-10-28 21:06:41 GPU0 end b0n_r101_s1024/hold34 rc=0 ok=True
+2026-10-28 21:06:41 GPU0 start R2n_context/fold2 (launch 1/2) pid=2036905 cores=16-21
+2026-10-28 21:09:11 GPU1 end b0n_r101_s1024/hold03 rc=0 ok=True
+2026-10-28 21:09:11 GPU1 start b0n_r101_s1024/hold13 (launch 1/2) pid=2050635 cores=22-27
+2026-10-28 21:38:41 GPU0 end R2n_context/fold2 rc=0 ok=True
+2026-10-28 21:38:41 GPU0 start b0n_r101_s1024/hold04 (launch 1/2) pid=2166796 cores=16-21
+2026-10-28 21:40:11 GPU1 end b0n_r101_s1024/hold13 rc=0 ok=True
+2026-10-28 21:40:11 CPU start prep_o3: taskset -c 28-31 .venv/bin/python scripts/nested_stage1.py ens --outer 3 && taskset -c 28-31 .venv/bin/python scripts/nested_stage1.py cache --outer 3 --workers 4 && taskset -c 28-31 .venv/bin/python scripts/nested_stage1.py verify --outer 3
+2026-10-28 21:40:11 GPU1 start b0n_r101_s1024/hold14 (launch 1/2) pid=2169575 cores=22-27
+2026-10-28 21:46:11 CPU end prep_o3: verify passed
+2026-10-28 22:09:41 GPU0 end b0n_r101_s1024/hold04 rc=0 ok=True
+2026-10-28 22:09:41 GPU0 start R2n_context/fold3 (launch 1/2) pid=2301138 cores=16-21
+2026-10-28 22:11:41 GPU1 end b0n_r101_s1024/hold14 rc=0 ok=True
+2026-10-28 22:11:41 CPU start prep_o4: taskset -c 28-31 .venv/bin/python scripts/nested_stage1.py ens --outer 4 && taskset -c 28-31 .venv/bin/python scripts/nested_stage1.py cache --outer 4 --workers 4 && taskset -c 28-31 .venv/bin/python scripts/nested_stage1.py verify --outer 4
+2026-10-28 22:11:41 GPU1 start b0n_r101_s1024/hold01 (launch 1/2) pid=2305076 cores=22-27
+2026-10-28 22:18:11 CPU end prep_o4: verify passed
+2026-10-28 22:24:59 queue start gpus=[0] last_launch=- pid=2330452
+2026-10-28 22:24:59 tracking still-running R2n_context/fold3 pid=2301138 on GPU0
+2026-10-28 22:41:59 GPU0 end R2n_context/fold3 rc=-999 ok=True
+2026-10-28 22:41:59   b0n_r101_s1024/hold01: leftover partial run folder renamed before launch
+2026-10-28 22:41:59 GPU0 start b0n_r101_s1024/hold01 (launch 1/2) pid=2433589 cores=16-21
+2026-10-28 23:14:59 GPU0 end b0n_r101_s1024/hold01 rc=0 ok=True
+2026-10-28 23:14:59 CPU start prep_o0: taskset -c 28-31 .venv/bin/python scripts/nested_stage1.py ens --outer 0 && taskset -c 28-31 .venv/bin/python scripts/nested_stage1.py cache --outer 0 --workers 4 && taskset -c 28-31 .venv/bin/python scripts/nested_stage1.py verify --outer 0
+2026-10-28 23:14:59 CPU start prep_o1: taskset -c 28-31 .venv/bin/python scripts/nested_stage1.py ens --outer 1 && taskset -c 28-31 .venv/bin/python scripts/nested_stage1.py cache --outer 1 --workers 4 && taskset -c 28-31 .venv/bin/python scripts/nested_stage1.py verify --outer 1
+2026-10-28 23:14:59 GPU0 start R2n_context/fold4 (launch 1/2) pid=2571400 cores=16-21
+2026-10-28 23:21:59 CPU end prep_o0: verify passed
+2026-10-28 23:21:59 CPU end prep_o1: verify passed
+2026-10-28 23:48:00 GPU0 end R2n_context/fold4 rc=0 ok=True
+2026-10-28 23:48:00 GPU0 start R2n_context/fold0 (launch 1/2) pid=2704120 cores=16-21
+2026-10-29 00:20:00 GPU0 end R2n_context/fold0 rc=0 ok=True
+2026-10-29 00:20:00 GPU0 start R2n_context/fold1 (launch 1/2) pid=2837201 cores=16-21
+2026-10-29 00:51:00 GPU0 end R2n_context/fold1 rc=0 ok=True
+2026-10-29 00:51:00 CPU start verify_o0: taskset -c 28-31 .venv/bin/python scripts/nested_stage1.py verify --outer 0
+2026-10-29 00:53:00 CPU end verify_o0 rc=0
+2026-10-29 00:53:00 CPU start verify_o1: taskset -c 28-31 .venv/bin/python scripts/nested_stage1.py verify --outer 1
+2026-10-29 00:55:01 CPU end verify_o1 rc=0
+2026-10-29 00:55:01 CPU start verify_o2: taskset -c 28-31 .venv/bin/python scripts/nested_stage1.py verify --outer 2
+2026-10-29 00:57:03 CPU end verify_o2 rc=0
+2026-10-29 00:57:03 CPU start verify_o3: taskset -c 28-31 .venv/bin/python scripts/nested_stage1.py verify --outer 3
+2026-10-29 00:59:06 CPU end verify_o3 rc=0
+2026-10-29 00:59:06 CPU start verify_o4: taskset -c 28-31 .venv/bin/python scripts/nested_stage1.py verify --outer 4
+2026-10-29 01:01:06 CPU end verify_o4 rc=0
+2026-10-29 01:01:06 CPU start eval: taskset -c 28-31 .venv/bin/python scripts/nested_r2b0_eval.py table --workers 4 && taskset -c 28-31 .venv/bin/python scripts/nested_r2b0_eval.py loao --workers 4 && taskset -c 28-31 .venv/bin/python scripts/nested_r2b0_eval.py analyse
+2026-10-29 01:03:27 CPU end eval rc=0
+2026-10-29 01:03:27 queue end; R2n done for outer folds [0, 1, 2, 3, 4], verified [0, 1, 2, 3, 4]

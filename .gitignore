@@ -1,0 +1,27 @@
+# competition data (download from Kaggle; not redistributed)
+MAGFiLO_1.0_Kaggle_2026/
+data/
+*.zip
+# whole checkpoints rebuilt from weights/*.partNN by the notebook (never commit files > 100 MiB to GitHub)
+weights/*.pt
+weights/*.tmp
+*.pt
+*.pth
+*.npz
+# run outputs (training runs, caches, notebook results) - keep only the fold split
+outputs/*
+!outputs/splits/
+outputs/splits/*
+!outputs/splits/folds_v1.csv
+logs/
+# python / jupyter / editors
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+notebooks/*.executed.ipynb
+.venv/
+venv/
+.env
+.DS_Store
+.vscode/
+.idea/

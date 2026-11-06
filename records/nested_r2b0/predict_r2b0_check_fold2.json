@@ -1,0 +1,67 @@
+{
+ "device": "cpu",
+ "fold": 2,
+ "files": [
+  {
+   "stem": "20111201063154Uh",
+   "n_kept": 7,
+   "n_inst": 7,
+   "a_exact": true,
+   "b_max_abs_dprob": 0.0693,
+   "b_union_iou": 0.9989,
+   "c_max_abs_dprob": 0.0728,
+   "c_pixels_flipped_at_0_5": 60
+  },
+  {
+   "stem": "20111206102934Ch",
+   "n_kept": 15,
+   "n_inst": 15,
+   "a_exact": true,
+   "b_max_abs_dprob": 0.1199,
+   "b_union_iou": 0.9985,
+   "c_max_abs_dprob": 0.093,
+   "c_pixels_flipped_at_0_5": 120
+  },
+  {
+   "stem": "20111208063134Lh",
+   "n_kept": 14,
+   "n_inst": 14,
+   "a_exact": true,
+   "b_max_abs_dprob": 0.0522,
+   "b_union_iou": 0.9985,
+   "c_max_abs_dprob": 0.0659,
+   "c_pixels_flipped_at_0_5": 103
+  },
+  {
+   "stem": "20111214063134Lh",
+   "n_kept": 11,
+   "n_inst": 11,
+   "a_exact": true,
+   "b_max_abs_dprob": 0.0439,
+   "b_union_iou": 0.9987,
+   "c_max_abs_dprob": 0.0928,
+   "c_pixels_flipped_at_0_5": 88
+  },
+  {
+   "stem": "20111214132434Ch",
+   "n_kept": 2,
+   "n_inst": 2,
+   "a_exact": true,
+   "b_max_abs_dprob": 0.0371,
+   "b_union_iou": 0.9984,
+   "c_max_abs_dprob": 0.1948,
+   "c_pixels_flipped_at_0_5": 48
+  },
+  {
+   "stem": "20111215063134Lh",
+   "n_kept": 10,
+   "n_inst": 9,
+   "a_exact": true,
+   "b_max_abs_dprob": 0.1033,
+   "b_union_iou": 0.9975,
+   "c_max_abs_dprob": 0.0795,
+   "c_pixels_flipped_at_0_5": 52
+  }
+ ],
+ "a_all_exact": true
+}

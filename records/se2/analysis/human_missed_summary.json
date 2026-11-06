@@ -1,0 +1,38 @@
+{
+ "all_multi_set": {
+  "n": 3709,
+  "model_final_se2": 0.4422,
+  "n_three_set": 2840,
+  "third_human": 0.3056,
+  "model_final_se2_same_cases": 0.4496
+ },
+ "three_set_images": {
+  "n": 2840,
+  "model_final_se2": 0.4496,
+  "n_three_set": 2840,
+  "third_human": 0.3056,
+  "model_final_se2_same_cases": 0.4496
+ },
+ "size_<500": {
+  "n": 701,
+  "model_final_se2": 0.3081,
+  "n_three_set": 528,
+  "third_human": 0.197,
+  "model_final_se2_same_cases": 0.2973
+ },
+ "size_500-1k": {
+  "n": 995,
+  "model_final_se2": 0.4563,
+  "n_three_set": 751,
+  "third_human": 0.2969,
+  "model_final_se2_same_cases": 0.4581
+ },
+ "size_>1k": {
+  "n": 2013,
+  "model_final_se2": 0.4819,
+  "n_three_set": 1561,
+  "third_human": 0.3466,
+  "model_final_se2_same_cases": 0.4971
+ },
+ "_note": "model = the final pipeline, nested OOF; produced by scripts/human_missed.py"
+}

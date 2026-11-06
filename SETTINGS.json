@@ -1,0 +1,14 @@
+{
+ "_comment": "Paths used by the code, relative to the repository root. The scripts resolve them from the repository root (src/filseg/data.py, scripts/*.py); the notebook also accepts FILSEG_DATA for the data folder. This file documents them (Kaggle winning-model template).",
+ "RAW_DATA_DIR": "MAGFiLO_1.0_Kaggle_2026/",
+ "TRAIN_DATA_DIR": "MAGFiLO_1.0_Kaggle_2026/train/",
+ "TEST_DATA_DIR": "MAGFiLO_1.0_Kaggle_2026/test/test_images/",
+ "CV_SPLIT_PATH": "outputs/splits/folds_v1.csv",
+ "TRAIN_OUTPUT_DIR": "outputs/exps/",
+ "REFINE_CACHE_DIR": "outputs/cache/refine_v1/",
+ "SE_OUTPUT_DIR": "outputs/research/small_exist/",
+ "MODEL_DIR": "weights/",
+ "SUBMISSION_DIR": "outputs/",
+ "REFERENCE_SUBMISSION": "reference/submission_r2b0_se2.csv",
+ "LOGS_DIR": "logs/"
+}

@@ -1,0 +1,5 @@
+# weight parts are binary byte ranges: never diff, merge or convert line endings
+weights/*.part* binary
+*.ipynb text eol=lf
+*.py text eol=lf
+*.csv text eol=lf

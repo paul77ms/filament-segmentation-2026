@@ -1,0 +1,30 @@
+{
+ "gt_records": 8199,
+ "stage_counts": {
+  "0 matched": 5358,
+  "1a no stage-1 response": 526,
+  "1b weak stage-1 response": 297,
+  "2a small pieces removed": 399,
+  "2b lost after the gate": 6,
+  "3 boundary": 971,
+  "4 split": 264,
+  "5 merged": 378
+ },
+ "matched_share_by_visibility": {
+  "clear": 0.8064516129032258,
+  "faint": 0.4840406874780779,
+  "small but visible": 0.4742063492063492
+ },
+ "small_lt500_matched_share": 0.4085510688836104,
+ "drawn_by_another_annotator": {
+  "0 matched": 0.7878151260504201,
+  "1a no stage-1 response": 0.18505338078291814,
+  "1b weak stage-1 response": 0.2553191489361702,
+  "2a small pieces removed": 0.31527093596059114,
+  "2b lost after the gate": 0.25,
+  "3 boundary": 0.32063492063492066,
+  "4 split": 0.43333333333333335,
+  "5 merged": 0.36036036036036034
+ },
+ "median_stage1_p_no_response": 0.002635955810546875
+}

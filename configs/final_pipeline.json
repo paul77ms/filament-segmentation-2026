@@ -1,0 +1,115 @@
+{
+ "pipeline": "final submission: stage 1 (5-fold b0) -> existence gate -> R2 refinement -> assembly -> cleanup -> SE2",
+ "reference_csv": "reference/submission_r2b0_se2.csv",
+ "reference_csv_sha256": "5e36fed404ce42f9e8b898569e45e9b810c9b0259282df831f2f3fe9196afde5",
+ "public_lb": 0.37,
+ "code": "src/filseg_infer.py, src/filseg_infer_r2b0.py (run), src/filseg_infer_se.py (constants defined there; this file documents them)",
+ "provenance_keys": {
+  "nested_cv": "chosen on the training folds and scored on the held-out fold (nested), adopted under a rule registered before the result",
+  "rule": "fixed by a registered rule before any result, not tuned",
+  "recipe": "training/architecture choice, validated as a whole",
+  "plateau": "checked afterwards by nested automatic tuning (records/tune_nested/): changing it does not improve held-out PQ"
+ },
+ "stages": {
+  "preprocessing": {
+   "disk_window": [
+    120,
+    1928
+   ],
+   "input_size": 1024,
+   "resize": "cv2.INTER_AREA",
+   "normalise": "(x / 255 - 0.30) / 0.22",
+   "provenance": "recipe; the window contains the whole solar disk and every annotation (scripts/data_audit.py)"
+  },
+  "stage1": {
+   "model": "U-Net, ResNet-101 encoder (ImageNet init), 1 input channel, 1 output channel (smp 0.6.0 Unet equivalent)",
+   "weights": [
+    "weights/b0_fold0.pt",
+    "weights/b0_fold1.pt",
+    "weights/b0_fold2.pt",
+    "weights/b0_fold3.pt",
+    "weights/b0_fold4.pt"
+   ],
+   "training": "60 epochs, last epoch; BCE + soft Dice; one annotation set drawn per visit (seeded)",
+   "upsampling": "logits bilinear to 1808^2 before the sigmoid, placed in a 2048^2 canvas",
+   "ensemble": "each model's probability rounded to float16; float32 mean rounded to float16",
+   "provenance": "recipe (records/b0_r101_s1024/)"
+  },
+  "existence_gate": {
+   "threshold": 0.5,
+   "min_area_px": 500,
+   "connectivity": 8,
+   "provenance": "nested_cv (scripts/tune_post.py); plateau, the only sensitive constant (records/tune_nested/sensitivity.csv)"
+  },
+  "candidates": {
+   "threshold": 0.3,
+   "quantisation": "rint(p * 255) / 255",
+   "min_area_px": 20,
+   "keep_if": "overlaps the existence gate by >= 1 px",
+   "provenance": "rule (registered with R2)"
+  },
+  "r2_refinement": {
+   "model": "U-Net, ResNet-101 encoder, 10 input channels",
+   "weights": "weights/r2_final.pt",
+   "window_px": 384,
+   "context_px": 1536,
+   "context_downsample": 4,
+   "bbox_margin_px": 32,
+   "channels": [
+    "image",
+    "candidate",
+    "stage-1 probability",
+    "other candidates",
+    "cos 2theta",
+    "sin 2theta",
+    "context image",
+    "context probability",
+    "context candidate",
+    "context other candidates"
+   ],
+   "window_mean": "per-candidate mean of the sigmoid over its windows, rounded to float16",
+   "provenance": "recipe; nested validation records/nested_r2b0/; adopted by a post-hoc decision (docs/validation.md)"
+  },
+  "assembly": {
+   "mask_threshold": 0.5,
+   "merge_iou": 0.5,
+   "pixel_conflicts": "higher probability wins",
+   "min_area_px": 300,
+   "provenance": "rule (registered with R2); plateau (records/tune_nested/)"
+  },
+  "cleanup": {
+   "min_part_px": 20,
+   "island_fraction": 0.05,
+   "keep_largest_part": true,
+   "provenance": "rule (20 px; 5 %, the MAGFiLO QA rule); nested_cv neutral-or-better, plateau"
+  },
+  "se2": {
+   "fragment_candidates": "stage-1 candidates (p > 0.3, >= 20 px) that overlap a small component (p > 0.5, 100-499 px) and do not touch the >= 500 px gate",
+   "refinement": "R2_final at native resolution (same windows and channels as the R2 stage), per-candidate mean over windows",
+   "assembly": {
+    "mask_threshold": 0.5,
+    "merge_iou": 0.5,
+    "min_area_px": 100
+   },
+   "crop_px": 96,
+   "channels": [
+    "image",
+    "rint(p16 * 255)",
+    "refined mask",
+    "mask of the >= 500 px components"
+   ],
+   "model": "ResNet-101 stem + layer1 + layer2, global average pool, linear (5.9 MB)",
+   "weights": "weights/se2_scorer.pt",
+   "training": "refined fragments of all 707 training images, each out-of-fold (stage 1 = mean of the 4 inner models that never saw the image, refinement = R2n of its outer fold); 25 epochs, batch 64, flips + rot90, seed 2026",
+   "target": "mean over the image's annotation sets of (IoU of the refined mask with that set's best instance if > 0.5 else 0); deterministic, every set",
+   "tau": 0.12744,
+   "tau_rule": "0.6 x 0.2124 (PQ/2 of the pipeline before SE2, out of fold). m maximises the leaderboard-type PQ V1 (annotation sets of an image pooled) on a pre-defined grid {0.6, 0.8, 1.0, 1.25, 1.5}: per outer fold on the other 4 folds (0.6 in folds 0, 2, 3, 4; 0.8 in fold 1); at test time the V1 maximum over all 707 training images (scripts/se2_analysis.py select, records/se2/analysis/threshold_v1.json). No test information.",
+   "add_if": "score > tau and zero pixel overlap with the existing instances",
+   "provenance": "post hoc: the criterion was changed from the first-order V0 gain to V1 after an exploratory all-fold sweep had been seen; the final threshold does not pass the registered SE2 rule (E1, E3, E4, E5 fail); docs/validation.md"
+  }
+ },
+ "nested_auto_tuning_check": {
+  "record": "records/tune_nested/summary.json",
+  "result": "V0 +0.0003 [-0.0015, +0.0023] for tuning the post-processing constants (gate, assembly threshold, merge IoU, min area, part size, island fraction; measured with an earlier small-fragment stage) per outer fold; registered switch rule (CI lower bound > 0) not met, constants kept"
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "file": "r2_final.pt",
+ "bytes": 206767232,
+ "sha256": "922a848c845169ecdee7d7d9db2550b1dda43632e7485e60e94c832764344c6f",
+ "parts": [
+  {
+   "path": "r2_final.pt.part00",
+   "bytes": 41353447,
+   "sha256": "0529ecdf5520dbf674f27cc4472691e1fe4df64b87301c18aec9c740a57f5ea1"
+  },
+  {
+   "path": "r2_final.pt.part01",
+   "bytes": 41353447,
+   "sha256": "3fdc3df40a21690ce4093cc5280e5f172b1994f262004955628f62a6cb3cc0b9"
+  },
+  {
+   "path": "r2_final.pt.part02",
+   "bytes": 41353447,
+   "sha256": "c20172a6b090fc7a288d29aa660bd9b1a3fb6552edadae10cafd53e592d3abc0"
+  },
+  {
+   "path": "r2_final.pt.part03",
+   "bytes": 41353447,
+   "sha256": "c96ec714bfe02208dd0d4943e9664fb8fbbbc46649ab1d9c5e4384757a23d777"
+  },
+  {
+   "path": "r2_final.pt.part04",
+   "bytes": 41353444,
+   "sha256": "99bc1423b75fcb4b6dba40a6709c20722919f7d6ba55da4fa47fc41b3d52ef35"
+  }
+ ]
+}

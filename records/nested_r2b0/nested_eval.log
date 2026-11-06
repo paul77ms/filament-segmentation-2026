@@ -1,0 +1,143 @@
+  50/707 files 6s
+  100/707 files 12s
+  150/707 files 17s
+  200/707 files 22s
+  250/707 files 27s
+  300/707 files 32s
+  350/707 files 37s
+  400/707 files 42s
+  450/707 files 47s
+  500/707 files 52s
+  550/707 files 57s
+  600/707 files 62s
+  650/707 files 67s
+  700/707 files 72s
+table: 5770 rows, 707 files, 73s
+loao: 5980 record rows, 296 files
+{
+ "methods": {
+  "B_ens": {
+   "PQ": 0.4092767425079395,
+   "TP": 4748,
+   "FP": 2703,
+   "FN": 3451,
+   "thin_recall": 0.4265643258105167,
+   "thin_precision": 0.5102091930443909
+  },
+  "R2nb0": {
+   "PQ": 0.4242670704343342,
+   "TP": 4794,
+   "FP": 2285,
+   "FN": 3405,
+   "thin_recall": 0.45414136785427883,
+   "thin_precision": 0.493282885328714
+  },
+  "B_ens_a300": {
+   "PQ": 0.4064926870270614,
+   "TP": 5139,
+   "FP": 3688,
+   "FN": 3060,
+   "thin_recall": 0.4596853400542254,
+   "thin_precision": 0.5021311162547161
+  },
+  "R2nfull": {
+   "PQ": 0.39852079136695145,
+   "TP": 5501,
+   "FP": 4863,
+   "FN": 2698,
+   "thin_recall": 0.5463100011456066,
+   "thin_precision": 0.43302903298240486
+  },
+  "b0_single": {
+   "PQ": 0.4098895520674939,
+   "TP": 4800,
+   "FP": 2758,
+   "FN": 3399,
+   "thin_recall": 0.4405269790353992,
+   "thin_precision": 0.4837741139360661
+  }
+ },
+ "main": {
+  "file_boot": {
+   "PQ": {
+    "diff": 0.014990327926394709,
+    "ci95": [
+     0.010418025392530573,
+     0.01970285915709793
+    ],
+    "p_boot_le0": 0.0,
+    "n_units": 707
+   },
+   "thin_recall": {
+    "diff": 0.027577042043762157,
+    "ci95": [
+     0.024339574439135127,
+     0.030897586268948764
+    ]
+   },
+   "thin_precision": {
+    "diff": -0.016926307715676936,
+    "ci95": [
+     -0.027420320973214847,
+     -0.006676661866640003
+    ]
+   }
+  },
+  "per_fold": {
+   "0": {
+    "A": 0.41631316154583736,
+    "B": 0.42918119610223415,
+    "diff": 0.01286803455639679
+   },
+   "1": {
+    "A": 0.3936816889980023,
+    "B": 0.40974286801947574,
+    "diff": 0.016061179021473415
+   },
+   "2": {
+    "A": 0.40558782674390836,
+    "B": 0.4156415139194128,
+    "diff": 0.010053687175504422
+   },
+   "3": {
+    "A": 0.40125119356833566,
+    "B": 0.42231619561071687,
+    "diff": 0.02106500204238121
+   },
+   "4": {
+    "A": 0.4288978095472807,
+    "B": 0.44397329189513723,
+    "diff": 0.01507548234785655
+   }
+  },
+  "per_file_sign": {
+   "n": 707,
+   "better": 426,
+   "worse": 253,
+   "equal": 28,
+   "mean_diff": 0.01568283633055038,
+   "median_diff": 0.005656076513598618,
+   "sign_test_p": 3.2216657409219596e-11
+  },
+  "review_set": {
+   "n_files": 32,
+   "n_records": 68,
+   "A": 0.36860209606883404,
+   "B": 0.3800642403477112
+  }
+ },
+ "rule": {
+  "pq_diff_ge_0": true,
+  "thin_recall_higher": true,
+  "thin_precision_higher": false,
+  "sign_test": true,
+  "review_set_not_lower": true,
+  "no_loao_aspect_newly_below_human": false,
+  "all_5_folds_present": true,
+  "table_covers_all_val_files": true,
+  "loao_covers_all_multiset_files": true,
+  "no_loao_aspect_undetermined": true,
+  "verify_all_ok_incl_r2n": true,
+  "ADOPT": false
+ }
+}

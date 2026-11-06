@@ -1,0 +1,12 @@
+{
+ "outer": 0,
+ "members": [
+  "b0n_r101_s1024/hold01",
+  "b0n_r101_s1024/hold02",
+  "b0n_r101_s1024/hold03",
+  "b0n_r101_s1024/hold04"
+ ],
+ "combine": "mean of probabilities",
+ "n_files": 139,
+ "note": "matched stage 1 of outer fold k (D-035); baseline = t0.5/8-conn/a500"
+}

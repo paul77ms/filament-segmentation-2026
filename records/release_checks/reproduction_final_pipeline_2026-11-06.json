@@ -1,0 +1,17 @@
+{
+ "date": "2026-11-06",
+ "commit": "dce9da9",
+ "how": "git clone of the release repository into a new folder; every code cell of notebooks/reproduce_submission.ipynb executed in order (defaults: all 180 test images, evaluation section with FILSEG_EVAL_N=20) with FILSEG_DATA set, Python 3.13.13, torch 2.6.0+cu124",
+ "device": "NVIDIA RTX A6000 (GPU1), bf16 autocast, deterministic cuDNN, 4 CPU threads",
+ "notebook_errors": 0,
+ "rows": 1381,
+ "se2_added": 253,
+ "images_with_predictions": 177,
+ "seconds_predict": 608,
+ "seconds_per_image": 3.4,
+ "peak_rss_gb": 1.7,
+ "csv_sha256_new": "5e36fed404ce42f9e8b898569e45e9b810c9b0259282df831f2f3fe9196afde5",
+ "csv_sha256_reference": "5e36fed404ce42f9e8b898569e45e9b810c9b0259282df831f2f3fe9196afde5",
+ "verdict": "BIT-IDENTICAL to the reference submission (1381/1381 masks bit-identical)",
+ "evaluation_section": "stage 1 + gate on 100 training images out of fold: V0 0.4102, V1 0.3506, mean Dice 0.6803; nested records printed (final V0 0.4316, V1 0.3814)"
+}

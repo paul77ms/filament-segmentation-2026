@@ -1,0 +1,32 @@
+{
+ "file": "b0_fold3.pt",
+ "bytes": 206654336,
+ "sha256": "c26cfa50682c9ee3db95d2e41a129dbc49d41dcd084a4bab171e082d8832254a",
+ "parts": [
+  {
+   "path": "b0_fold3.pt.part00",
+   "bytes": 41330868,
+   "sha256": "64a431902ab3b6d680b4d1d9d03c1f9e66421e673a929956283a048286e387ec"
+  },
+  {
+   "path": "b0_fold3.pt.part01",
+   "bytes": 41330868,
+   "sha256": "49c02423b7f5adb6f05a9739413e7b9385041382188b48f57abeae8bb379388f"
+  },
+  {
+   "path": "b0_fold3.pt.part02",
+   "bytes": 41330868,
+   "sha256": "dbe9d8d705237a0a411dab3b7c90ddb31e1d304bdced0c7a9fffee9c87181508"
+  },
+  {
+   "path": "b0_fold3.pt.part03",
+   "bytes": 41330868,
+   "sha256": "9462d6242fc3fa9a2a40a522604722ba58ed2330df925bf05bb880eeb0e191e3"
+  },
+  {
+   "path": "b0_fold3.pt.part04",
+   "bytes": 41330864,
+   "sha256": "6ba85b4cb0621e5ad737b29c39222920480b3484c67ad23c2a05c2b08415ee32"
+  }
+ ]
+}

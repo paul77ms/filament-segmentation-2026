@@ -1,0 +1,24 @@
+# Every package this repository uses, with exact versions. Requires Python >= 3.12 (numpy 2.5.4, scipy 1.18.1);
+# tested: Python 3.13, Linux x86_64, torch 2.6.0 + CUDA 12.4.
+# Fully resolved environment of the tested run: requirements-lock.txt.
+# --- inference (src/filseg_infer*.py, the notebook's prediction) ---
+torch==2.6.0
+torchvision==0.21.0
+numpy==2.5.4
+opencv-python-headless==5.0.0.93
+# --- notebook execution ---
+notebook==7.6.3
+nbconvert==7.17.2
+ipykernel==7.4.0
+ipython==9.18.1
+# --- training, evaluation and analysis (scripts/, src/filseg/, tests/); not needed to reproduce the submission ---
+segmentation-models-pytorch==0.6.0
+timm==1.0.30
+pycocotools==2.0.11
+scipy==1.18.1
+scikit-image==0.26.0
+scikit-learn==1.9.1
+pandas==3.1.0
+matplotlib==3.11.2
+pillow==13.0.0
+threadpoolctl==3.7.0

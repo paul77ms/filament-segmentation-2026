@@ -1,0 +1,40 @@
+{
+ "device": "cuda",
+ "logs": {
+  "outer0": {
+   "n_train": 1360,
+   "pos_train": 503,
+   "n_eval": 270,
+   "sec": 14.9
+  },
+  "outer1": {
+   "n_train": 1329,
+   "pos_train": 516,
+   "n_eval": 345,
+   "sec": 12.2
+  },
+  "outer2": {
+   "n_train": 1343,
+   "pos_train": 510,
+   "n_eval": 327,
+   "sec": 12.2
+  },
+  "outer3": {
+   "n_train": 1305,
+   "pos_train": 505,
+   "n_eval": 333,
+   "sec": 11.9
+  },
+  "outer4": {
+   "n_train": 1375,
+   "pos_train": 486,
+   "n_eval": 304,
+   "sec": 12.5
+  },
+  "final": {
+   "n_train": 1579,
+   "pos_train": 633,
+   "sec": 14.9
+  }
+ }
+}

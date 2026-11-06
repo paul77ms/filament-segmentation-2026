@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "filseg"
+version = "1.0.0"
+description = "Solar filament instance segmentation (Kaggle Solar Filament Segmentation Challenge 2026): stage-1 U-Net, native-resolution refinement, cleanup, small-filament existence scoring"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { file = "LICENSE" }
+# exact versions of the tested inference environment; requirements.txt lists every package of the repository
+dependencies = ["torch==2.6.0", "torchvision==0.21.0", "numpy==2.5.4", "opencv-python-headless==5.0.0.93"]
+
+[project.optional-dependencies]
+train = ["segmentation-models-pytorch==0.6.0", "timm==1.0.30", "pycocotools==2.0.11", "scipy==1.18.1",
+         "scikit-image==0.26.0", "scikit-learn==1.9.1", "pandas==3.1.0", "matplotlib==3.11.2", "pillow==13.0.0",
+         "threadpoolctl==3.7.0"]
+notebook = ["notebook==7.6.3", "nbconvert==7.17.2", "ipykernel==7.4.0"]
+
+[project.scripts]
+filseg-predict = "filseg_cli:main"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+py-modules = ["filseg_cli", "filseg_infer", "filseg_infer_r2b0", "filseg_infer_se", "reproduce_utils", "weight_parts"]
+packages = ["filseg"]

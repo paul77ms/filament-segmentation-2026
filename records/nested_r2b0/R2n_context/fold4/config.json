@@ -1,0 +1,30 @@
+{
+ "variant": "r2",
+ "fold": 4,
+ "exp": "R2n_context",
+ "epochs": 30,
+ "bs": 16,
+ "lr": 0.0003,
+ "workers": 8,
+ "seed": 2026,
+ "dump": 0,
+ "cache": "outputs/cache/refine_nested_o4",
+ "all": false,
+ "n_train_windows": 5865,
+ "n_val_files": 141,
+ "win": 384,
+ "ctx": 1536,
+ "cand_thr": 0.3,
+ "cand_min": 20,
+ "channels": 10,
+ "stage1": "nested_outer4",
+ "cache_dir": "outputs/cache/refine_nested_o4",
+ "exist_exp": "b0n_ens",
+ "train_folds": [
+  0,
+  1,
+  2,
+  3
+ ],
+ "torch": "2.6.0+cu124"
+}

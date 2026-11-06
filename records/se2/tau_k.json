@@ -1,0 +1,10 @@
+{
+ "tau_k": {
+  "0": 0.21172807156171253,
+  "1": 0.2142273402736962,
+  "2": 0.21357315870383514,
+  "3": 0.21267667228042547,
+  "4": 0.2100202348886007
+ },
+ "definition": "tau_k = pooled V0 PQ / 2 of the final pipeline without its small-fragment stage, on the outer-train folds of outer fold k (scripts/small_exist.py train); SE2 adds a redrawn fragment iff its score > m_k x tau_k in validation (m_k chosen by V1 without fold k: 0.6, 0.8, 0.6, 0.6, 0.6 for k = 0..4) and > 0.6 x 0.2124 = 0.12744 at test time"
+}

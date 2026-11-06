@@ -1,0 +1,31 @@
+{
+ "variant": "r2",
+ "fold": 1,
+ "exp": "R2_final_context",
+ "epochs": 30,
+ "bs": 16,
+ "lr": 0.0003,
+ "workers": 8,
+ "seed": 2026,
+ "dump": 0,
+ "cache": "outputs/cache/refine_v1",
+ "all": true,
+ "n_train_windows": 7337,
+ "n_val_files": 0,
+ "win": 384,
+ "ctx": 1536,
+ "cand_thr": 0.3,
+ "cand_min": 20,
+ "channels": 10,
+ "stage1": "b0_r101_s1024",
+ "cache_dir": "outputs/cache/refine_v1",
+ "exist_exp": "b0_r101_s1024",
+ "train_folds": [
+  0,
+  1,
+  2,
+  3,
+  4
+ ],
+ "torch": "2.6.0+cu124"
+}
