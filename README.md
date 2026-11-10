@@ -209,8 +209,8 @@ large faint filaments, filaments at 60–70° longitude, and smoothly drawn fine
 
 ## Licence and references
 
-- Code: MIT (`LICENSE`), which also grants the organisers a perpetual, non-exclusive, royalty-free licence for
-  research, education, benchmarking and archiving. The competition data is not redistributed.
+- Code: MIT License (`LICENSE`): anyone, including the organisers, may use, copy, modify and distribute it free of
+  charge. The competition data is not redistributed.
 - Ahmadzadeh et al., MAGFiLO dataset, *Scientific Data* 11:1031 (2024), doi:10.1038/s41597-024-03876-y.
 - Kirillov et al., Panoptic Segmentation, CVPR 2019. Ronneberger et al., U-Net, MICCAI 2015. He et al., ResNet,
   CVPR 2016.
