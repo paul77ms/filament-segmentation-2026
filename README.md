@@ -161,6 +161,21 @@ A6000 the output is byte-identical (about 10 minutes); on a GPU without bf16 or 
 runs in fp32 and the notebook reports the agreement with the reference within tolerances fixed in advance. Other ways to run it, CPU behaviour and training from scratch:
 `docs/reproducibility.md`.
 
+## Predict new images
+
+Any folder of 2048x2048 full-disk GONG H-alpha JPEGs (the geometry of the competition images) can be predicted with
+the stored weights:
+
+```bash
+python src/filseg_cli.py --data /path/to/new_images --out predictions.csv --masks out/masks --overlays out/overlays
+```
+
+- `predictions.csv`: the competition format (`filament_id,segmentation_rle`, COCO compressed RLE, one row per filament).
+- `--masks` (optional): one 16-bit PNG label map per image (0 = background, k = filament `<stem>_<k-1>`).
+- `--overlays` (optional): one JPEG per image with the filament outlines drawn on the H-alpha image.
+- In the notebook: set `FILSEG_DATA=/path/to/new_images` (and `FILSEG_EXPORT=out` for masks and overlays); the
+  comparison with the reference CSV and the evaluation on the training data then skip themselves.
+
 ## Method in brief
 
 - **Why stage 1 sees the whole disk.** Filaments are long and end faintly; deciding where one ends needs context

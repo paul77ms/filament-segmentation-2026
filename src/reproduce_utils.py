@@ -1,6 +1,7 @@
 """Helpers for notebooks/reproduce_submission.ipynb.
 
-- locate the competition data and the test images,
+- locate the competition data, the test images or any folder of new images,
+- export predicted masks and outline overlays (export_masks),
 - rebuild the stored model weights from their < 50 MB parts and verify every checksum,
 - compare a freshly produced submission CSV with the reference submission (instance-level, overlap-based),
 - draw a small figure of the pipeline stages for one image (r2b0_figure).
@@ -26,14 +27,24 @@ IMAGE_SUFFIXES = (".jpeg", ".jpg")
 
 # ----------------------------------------------------------------------------- data
 def find_test_dir(data) -> Path:
-    """Accept the test_images folder itself, the MAGFiLO_1.0_Kaggle_2026 folder, or the folder that contains it."""
+    """The folder of images to predict: the competition's test_images folder (given itself, as the
+    MAGFiLO_1.0_Kaggle_2026 folder or as the folder that contains it), or any folder of .jpeg/.jpg images (new data)."""
     data = Path(data)
     for cand in (data, data / "test" / "test_images", data / "MAGFiLO_1.0_Kaggle_2026" / "test" / "test_images"):
         if cand.name == "test_images" and cand.is_dir():
             return cand
+    if data.is_dir() and any(p.suffix.lower() in IMAGE_SUFFIXES for p in data.iterdir()):
+        return data
     raise FileNotFoundError(
-        f"No test_images folder under {data}. Unzip the competition data (filament-segmentation-2026.zip) in the "
-        "repository root, or set FILSEG_DATA to the folder that contains MAGFiLO_1.0_Kaggle_2026/.")
+        f"No images under {data}. Give a folder of 2048x2048 GONG H-alpha JPEGs, or the competition data: unzip "
+        "filament-segmentation-2026.zip in the repository root, or set FILSEG_DATA to the folder that contains "
+        "MAGFiLO_1.0_Kaggle_2026/.")
+
+
+def data_root(test_dir) -> Path:
+    """The MAGFiLO_1.0_Kaggle_2026 folder for the competition layout, otherwise the image folder itself."""
+    test_dir = Path(test_dir)
+    return test_dir.parent.parent if test_dir.name == "test_images" else test_dir
 
 
 def locate_data(repo) -> Path:
@@ -45,9 +56,11 @@ def locate_data(repo) -> Path:
              Path("/kaggle/input/filament-segmentation-2026")]
     for cand in tried:
         try:
-            return find_test_dir(cand).parent.parent        # .../MAGFiLO_1.0_Kaggle_2026
+            t = find_test_dir(cand)
         except FileNotFoundError:
             continue
+        if t.name == "test_images":
+            return t.parent.parent                          # .../MAGFiLO_1.0_Kaggle_2026
     raise FileNotFoundError(
         "Competition data not found. Looked in:\n  " + "\n  ".join(map(str, tried)) + "\nUnzip "
         "filament-segmentation-2026.zip in the repository root, or set FILSEG_DATA (or DATA in the notebook's first cell) "
@@ -130,6 +143,30 @@ def read_submission(path) -> dict[str, list[tuple[str, str]]]:
         for fid, rle in rd:
             out[image_of(fid)].append((fid, rle))
     return dict(out)
+
+
+def export_masks(csv_path, image_dir, masks_dir=None, overlays_dir=None, limit: int = 0) -> int:
+    """For each predicted image: a 16-bit PNG label map (0 = background, k = the k-th filament of the image in the CSV,
+    i.e. filament_id <stem>_<k-1>) and/or a JPEG of the image with the filament outlines. Returns the images written."""
+    sub = read_submission(csv_path)
+    for d in (masks_dir, overlays_dir):
+        if d:
+            Path(d).mkdir(parents=True, exist_ok=True)
+    files = list_test_images(image_dir, limit)
+    for f in files:
+        rows = sub.get(f.stem, [])
+        lab = np.zeros((K.H, K.W), np.uint16)
+        for k, (_, rle) in enumerate(rows, start=1):
+            lab[K.mask_from_counts(rle).astype(bool)] = k
+        if masks_dir:
+            cv2.imwrite(str(Path(masks_dir) / f"{f.stem}.png"), lab)
+        if overlays_dir:
+            img = cv2.cvtColor(K.read_image(f), cv2.COLOR_GRAY2BGR)
+            for k in range(1, len(rows) + 1):
+                cs, _ = cv2.findContours((lab == k).astype(np.uint8), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
+                cv2.drawContours(img, cs, -1, (0, 200, 255), 2)
+            cv2.imwrite(str(Path(overlays_dir) / f"{f.stem}.jpg"), img, [cv2.IMWRITE_JPEG_QUALITY, 90])
+    return len(files)
 
 
 def _label_map(rows):
