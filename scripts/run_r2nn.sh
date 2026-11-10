@@ -2,7 +2,7 @@
 # SE2 inner R2 models: for each outer fold k, rebuild the nested cache refine_nested_o<k> (stage 1 of every file from
 # models that never saw k), train R2nn_context/fold<k>_in<j> on the folds outside {k, j} and refine fold j (j != k),
 # then delete the cache (8.4 GB; only one on disk at a time). One GPU, one job at a time.
-# Usage: scripts/run_r2nn.sh <gpu id approved by the user>
+# Usage: scripts/run_r2nn.sh <gpu id>
 set -u
 GPU=$1
 cd "$(dirname "$0")/.." && mkdir -p tmp logs   # repository root

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # SE2 after the inner R2 queue: inner data (CPU) -> nested + final scorers (GPU) -> eval / loao / analyse (CPU).
-# Usage: scripts/run_se2_eval.sh <gpu id approved by the user> <pid of run_r2nn.sh to wait for>
+# Usage: scripts/run_se2_eval.sh <gpu id> <pid of run_r2nn.sh to wait for>
 set -u
 GPU=$1; WAIT=$2
 cd "$(dirname "$0")/.." && mkdir -p tmp logs   # repository root
