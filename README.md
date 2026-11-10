@@ -154,7 +154,7 @@ first code cell. Only the test images are needed to reproduce the CSV; the final
 training data and skips its live check (with a message) if it is absent.
 
 The notebook is stored with the outputs of a run of exactly these commands (fresh clone and environment, RTX A6000,
-2026-11-09), so it can be read on GitHub without running it. It loads the weights stored in `weights/` (no training),
+2026-11-10), so it can be read on GitHub without running it. It loads the weights stored in `weights/` (no training),
 runs the whole pipeline on the 180 test images,
 writes `outputs/submission_r2b0_se2.csv` and compares it with the submitted CSV in `reference/`. On an NVIDIA RTX
 A6000 the output is byte-identical (about 10 minutes); on a GPU without bf16 or on CPU (about 14 s per image) it

@@ -1,0 +1,18 @@
+{
+ "date": "2026-11-10",
+ "commit": "eb4fb13",
+ "how": "exactly the README quick start: git clone into a new folder; new venv (Python 3.13.13) with `pip install -r requirements.txt` only; competition data in the repository root; `jupyter nbconvert --to notebook --execute notebooks/reproduce_submission.ipynb` with defaults (all 180 test images, evaluation section with FILSEG_EVAL_N=20)",
+ "device": "NVIDIA RTX A6000, bf16 autocast, deterministic cuDNN, 4 CPU threads",
+ "pip_install": "ok",
+ "notebook_errors": 0,
+ "code_cells_executed": "26 cells, every code cell executed (incl. section 4b)",
+ "rows": 1381,
+ "se2_added": 253,
+ "images_with_predictions": 177,
+ "seconds_predict": 553,
+ "seconds_per_image": 3.1,
+ "csv_sha256_new": "5e36fed404ce42f9e8b898569e45e9b810c9b0259282df831f2f3fe9196afde5",
+ "csv_sha256_reference": "5e36fed404ce42f9e8b898569e45e9b810c9b0259282df831f2f3fe9196afde5",
+ "verdict": "BIT-IDENTICAL to the reference submission",
+ "stored_notebook": "notebooks/reproduce_submission.ipynb is this executed notebook (no error output, no local path in the file)"
+}
